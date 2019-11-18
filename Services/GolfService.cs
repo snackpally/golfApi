@@ -62,6 +62,12 @@ namespace GolfApi.Services
 			var pullFilter = Builders<Golf>.Update.PullFilter(g => g.Games, gm => gm.GameId == gameId);
 			_golf.UpdateMany(filter, pullFilter);
 		}
+
+		public Golf Create(Golf golf)
+		{
+			_golf.InsertOne(golf);
+			return golf;
+		}
 	}
 
 

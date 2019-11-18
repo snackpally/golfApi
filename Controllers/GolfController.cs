@@ -40,6 +40,13 @@ namespace GolfApi.Controllers
 			return golf;
 		}
 
+		[HttpPost("createuser")]
+		public ActionResult<Golf> Create([FromBody]Golf golf)
+		{
+			_golfService.Create(golf);
+			return CreatedAtRoute("FindUser", new { userName = golf.Name.ToLower() }, golf);
+		}
+
 		[HttpPut("deletegame/{gameId}")]
 		public IActionResult DeleteGame(string gameId)
 		{
