@@ -5,7 +5,7 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace GolfApi.Models
 {
 	[BsonIgnoreExtraElements]
-	public class Golf
+	public class User
 	{
 		[BsonId]
 		[BsonRepresentation(BsonType.ObjectId)]
