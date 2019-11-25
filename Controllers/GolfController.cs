@@ -16,6 +16,7 @@ namespace GolfApi.Controllers
 		}
 
 		//Get All Users
+		//golfapi/api/
 		[HttpGet]
 		public ActionResult<List<User>> Get() =>
 		_golfService.Get();
@@ -29,6 +30,7 @@ namespace GolfApi.Controllers
 			return user;
 		}
 		//Get user and one request game by gameID
+		//golfapi/api/{username}:string/{gameId}:string
 		[HttpGet("{user}/{gameId}", Name = "GetGame")]
 		public ActionResult<User> Get(string username, string gameId)
 		{
@@ -50,6 +52,7 @@ namespace GolfApi.Controllers
 		// }
 
 		//Create User
+		//golfapi/api/create
 		[ActionName("AddUser")]
 		[HttpPost("createuser")]
 		public ActionResult<User> Create([FromBody]User user)
@@ -66,7 +69,9 @@ namespace GolfApi.Controllers
 
 		// 	return hole;
 		// }
+
 		//This should really be by ID
+		//golfapi/api/creategame/{username}:string
 		[HttpPost("{userName}")]
 		public ActionResult<User> CreateGame(string userName, [FromBody]Game game)
 		{
@@ -76,6 +81,7 @@ namespace GolfApi.Controllers
 		}
 
 
+		//golfapi/api/deletegame/{gameId}:string
 		[HttpPut("deletegame/{gameId}")]
 		public IActionResult DeleteGame(string gameId)
 		{
